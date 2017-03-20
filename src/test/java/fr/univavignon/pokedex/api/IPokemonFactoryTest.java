@@ -25,7 +25,7 @@ public class IPokemonFactoryTest {
 	public Pokemon getPokemon(int index)
 	{
 		IPokemonMetadataProviderTest provider = new IPokemonMetadataProviderTest();
-		PokemonMetadata aquali = provider.getPkmMetadata(133);
+		PokemonMetadata aquali = provider.getPokemonMetadata(133);
 		
 		Pokemon pkm = new Pokemon(
 						aquali.getIndex(),
