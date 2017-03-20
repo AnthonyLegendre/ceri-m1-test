@@ -1,11 +1,11 @@
 machine:
-  java:
-    version: 'oraclejdk8'
+	java:
+		version: 'oraclejdk8'
 
 general:
-  branches:
-   only:
-     - master
+	branches:
+		only:
+			- master
 
 test:
- -mvn integration-test 
+	-mvn integration-test 
