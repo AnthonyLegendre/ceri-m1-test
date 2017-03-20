@@ -2,24 +2,14 @@ package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.*;
 
-import java.util.Comparator;
-import java.util.List;
-
-import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.*;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
+//import org.mockito.junit.MockitoJUnit;
+//import org.mockito.junit.MockitoRule;
 
 public class IPokedexTest {
 
-	@Mock private IPokedex pokedexMock;
-	
-	//Définition des résultats Mocks
-	//when(pokedexMock.size()).thenReturn(151);
-	
-	@Rule public MockitoRule mockitoRule = MockitoJUnit.rule();
-	
+	private IPokedex pokedex;
 	
 	//Mes tests
 	@Test
@@ -28,17 +18,20 @@ public class IPokedexTest {
 		assertEquals(4, sum);
 	}
 	
+	
 	@Test
 	public void testSize() {
-		IPokedex pokedex = getTestPokedex();
+		pokedex = getTestPokedex();
 		
-		assertEquals(pokedex.size(), 151);
+		assertEquals(151, pokedex.size());
 	}
 	
 	
 	public IPokedex getTestPokedex()
 	{
-		return pokedexMock;
+		pokedex = Mockito.mock(IPokedex.class);
+		Mockito.when(pokedex.size()).thenReturn(151);
+		return pokedex;
 	}
 	
 	//int size()
