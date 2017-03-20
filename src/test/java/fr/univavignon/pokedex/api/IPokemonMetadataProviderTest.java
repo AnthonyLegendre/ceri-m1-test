@@ -17,14 +17,6 @@ public class IPokemonMetadataProviderTest {
 		assertEquals(126, bulbi.getAttack());
 		assertEquals(126, bulbi.getDefense());
 		assertEquals(90, bulbi.getStamina());
-		
-		PokemonMetadata aquali = getPokemonMetadata(133);
-		
-		assertEquals(133, aquali.getIndex());
-		assertEquals("Aquali", aquali.getName());
-		assertEquals(186, aquali.getAttack());
-		assertEquals(168, aquali.getDefense());
-		assertEquals(260, aquali.getStamina());
 	}
 	
 	/*@Test(expected=PokedexException.class)

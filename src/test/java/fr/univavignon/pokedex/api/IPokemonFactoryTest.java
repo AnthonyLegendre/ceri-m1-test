@@ -7,7 +7,6 @@ import org.junit.Test;
 public class IPokemonFactoryTest {
 	
 	
-	/*@SuppressWarnings("deprecation")
 	@Test
 	public void testCreatePokemon()
 	{
@@ -18,10 +17,10 @@ public class IPokemonFactoryTest {
 		assertEquals(202,  pkm.getHp());
 		assertEquals(5000, pkm.getDust());
 		assertEquals(4, pkm.getCandy());
-		assertEquals(100.0, pkm.getIv());
+		assertEquals(100, pkm.getIv(), 0);
 		
 	}
-	*/
+	
 	public Pokemon getPokemon(int index)
 	{
 		IPokemonMetadataProviderTest provider = new IPokemonMetadataProviderTest();
@@ -37,7 +36,7 @@ public class IPokemonFactoryTest {
 						202,
 						5000,
 						4,
-						100.0
+						100
 					);
 		
 		return pkm;
