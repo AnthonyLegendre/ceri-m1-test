@@ -13,13 +13,13 @@ public class IPokedexTest {
 	public void testSize() {
 		pokedex = getTestPokedex();
 		
-		assertEquals(151, pokedex.size());
+		assertEquals(6, pokedex.size());
 	}
 	
 	public IPokedex getTestPokedex()
 	{
 		pokedex = Mockito.mock(IPokedex.class);
-		Mockito.when(pokedex.size()).thenReturn(151);
+		Mockito.when(pokedex.size()).thenReturn(6);
 		return pokedex;
 	}
 	
