@@ -6,3 +6,7 @@ general:
   branches:
     only:
       - master
+
+test:
+  override:
+    - mvn integration-test
