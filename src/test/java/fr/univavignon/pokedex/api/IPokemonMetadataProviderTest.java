@@ -2,61 +2,50 @@ package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
 
-public class IPokemonMetadataProviderTest {
+public final class IPokemonMetadataProviderTest {
+	
+	@Mock private IPokemonMetadataProvider pkmProvider;
+	private PokemonMetadata bulbi = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+	private PokemonMetadata aquali = new PokemonMetadata(133, "Aquali", 186, 168, 260);
 	
 	@Test
-	public void testPkmMetadata()
+	public void testPkmMetadata() throws PokedexException
 	{
-		PokemonMetadata bulbi = getPokemonMetadata(0);
+		assertEquals(bulbi, pkmProvider.getPokemonMetadata(0));
 		
-		assertEquals(0, bulbi.getIndex());
-		assertEquals("Bulbizarre", bulbi.getName());
-		assertEquals(126, bulbi.getAttack());
-		assertEquals(126, bulbi.getDefense());
-		assertEquals(90, bulbi.getStamina());
-	}
-	
-	/*@Test(expected=PokedexException.class)
-	public void testExceptionNeg()
-	{
-		PokemonMetadata pkm = getPokemonMetadata(-1);
 	}
 	
 	@Test(expected=PokedexException.class)
-	public void testExceptionSup()
+	public void testExceptionNeg() throws PokedexException
 	{
-		PokemonMetadata pkm = getPokemonMetadata(165);
-	}*/
-	
-	public PokemonMetadata getPokemonMetadata(int index)
-	{
-		PokemonMetadata pkm = Mockito.mock(PokemonMetadata.class);
-		Mockito.when(pkm.getIndex()).thenReturn(0);
-		Mockito.when(pkm.getName()).thenReturn("Bulbizarre");
-		Mockito.when(pkm.getAttack()).thenReturn(126);
-		Mockito.when(pkm.getDefense()).thenReturn(126);
-		Mockito.when(pkm.getStamina()).thenReturn(90);
-		
-		if(index == 133)
-		{
-			pkm = Mockito.mock(PokemonMetadata.class);
-			Mockito.when(pkm.getIndex()).thenReturn(133);
-			Mockito.when(pkm.getName()).thenReturn("Aquali");
-			Mockito.when(pkm.getAttack()).thenReturn(186);
-			Mockito.when(pkm.getDefense()).thenReturn(168);
-			Mockito.when(pkm.getStamina()).thenReturn(260);
-		}
-		if(index < 0 || index > 150)
-		{
-			//Mockito.when(pkm.getIndex()).thenThrow(new PokedexException("Index inexistant"));
-		}
-			
-		return pkm;
+		pkmProvider.getPokemonMetadata(-1);
 	}
 	
+	@Test(expected=PokedexException.class)
+	public void testExceptionSup() throws PokedexException
+	{
+		pkmProvider.getPokemonMetadata(151);
+	}
+	
+	@Before 
+	public void setUp() throws PokedexException
+	{
+		MockitoAnnotations.initMocks(this);
+		Mockito.when(pkmProvider.getPokemonMetadata(0)).thenReturn(bulbi);
+		Mockito.when(pkmProvider.getPokemonMetadata(133)).thenReturn(aquali);
+		
+		Mockito.when(pkmProvider.getPokemonMetadata(-1)).thenThrow(new PokedexException("Index inexistant"));
+		Mockito.when(pkmProvider.getPokemonMetadata(151)).thenThrow(new PokedexException("Index inexistant"));
+	}
+	
+	public IPokemonMetadataProvider getProvider()
+	{
+		return pkmProvider;
+	}
 	
 	/* Méthode(s) de la classe à tester 
 	 * PokemonMetadata getPokemonMetadata(int index) throws PokedexException;

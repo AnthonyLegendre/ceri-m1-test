@@ -5,26 +5,27 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.mockito.*;
 
-public class IPokemonTrainerFactoryTest {
+public final class IPokemonTrainerFactoryTest {
 
-	/*private PokemonTrainer trainer;
+	@Mock IPokemonTrainerFactory trainerFactory;
+	
+	IPokedexTest pokedex = new IPokedexTest();
+	PokemonTrainer sacha = new PokemonTrainer("Sacha", Team.VALOR, pokedex.getTestPokedex());
+	IPokedexFactoryTest pokedexFactory = new IPokedexFactoryTest();
 	
 	@Test
 	public void testTrainerFactory()
 	{
-		IPokemonTrainerFactory factory = getTrainerFactory();
-		PokemonTrainer trainer = factory.createTrainer("Sacha", Team.VALOR, IPokedexTest.getTestPokedex());
-		
+		assertEquals(sacha, trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory.getFactory()));
 	}
 	
-	
-	public IPokemonTrainerFactory getTrainerFactory()
+	public void setUp()
 	{
-		IPokemonTrainerFactory factory;
-		
-		return factory;
+		Mockito.when(trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory.getFactory())).thenReturn(sacha);
+		Mockito.when(trainerFactory.createTrainer(null, null, null)).thenReturn(sacha);
 	}
-	*/
+	
+	
 	/* Méthode(s) de la classe à tester 
 	 * PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory);
 	 */

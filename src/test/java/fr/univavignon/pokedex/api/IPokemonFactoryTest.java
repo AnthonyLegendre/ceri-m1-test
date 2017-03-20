@@ -3,14 +3,16 @@ package fr.univavignon.pokedex.api;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.mockito.Mock;
 
 public class IPokemonFactoryTest {
 	
+	@Mock private IPokemonFactory pkmFactory;
 	
 	@Test
 	public void testCreatePokemon()
 	{
-		Pokemon pkm = getPokemon(133);
+		Pokemon pkm = createPokemon(133);
 		
 		assertEquals(133, pkm.getIndex());
 		assertEquals(2729,  pkm.getCp());
@@ -21,10 +23,9 @@ public class IPokemonFactoryTest {
 		
 	}
 	
-	public Pokemon getPokemon(int index)
+	public Pokemon createPokemon(int index)
 	{
-		IPokemonMetadataProviderTest provider = new IPokemonMetadataProviderTest();
-		PokemonMetadata aquali = provider.getPokemonMetadata(133);
+		PokemonMetadata aquali = new PokemonMetadata(133, "Aquali", 186, 168, 260);
 		
 		Pokemon pkm = new Pokemon(
 						aquali.getIndex(),
@@ -42,6 +43,10 @@ public class IPokemonFactoryTest {
 		return pkm;
 	}
 	
+	public IPokemonFactory getFactory()
+	{
+		return pkmFactory;
+	}
 	
 	/* Méthode(s) de la classe à tester 
 	 * Pokemon createPokemon(int index, int cp, int hp, int dust, int candy);
