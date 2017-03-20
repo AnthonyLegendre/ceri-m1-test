@@ -16,7 +16,7 @@ public class IPokedexTest {
 	@Mock private IPokedex pokedexMock;
 	
 	//Définition des résultats Mocks
-	when(pokedexMock.size()).thenReturn(151);
+	//when(pokedexMock.size()).thenReturn(151);
 	
 	@Rule public MockitoRule mockitoRule = MockitoJUnit.rule();
 	
