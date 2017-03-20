@@ -27,15 +27,20 @@ public class IPokemonMetadataProviderTest {
 		assertEquals(260, aquali.getStamina());
 	}
 	
-	/*@Test
-	public void testException()
+	@Test(expected=PokedexException.class)
+	public void testExceptionNeg()
 	{
 		PokemonMetadata fail = getPkmMetadata(-1);
 		fail.getIndex();
 		
-		PokemonMetadata fail2 = getPkmMetadata(165);
-		fail2.getIndex();
-	}*/
+	}
+	
+	@Test(expected=PokedexException.class)
+	public void testExceptionSup()
+	{
+		PokemonMetadata fail = getPkmMetadata(165);
+		fail.getIndex();
+	}
 	
 	public PokemonMetadata getPkmMetadata(int index)
 	{
