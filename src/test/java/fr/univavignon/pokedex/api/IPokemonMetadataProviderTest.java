@@ -20,7 +20,7 @@ public class IPokemonMetadataProviderTest {
 		
 		PokemonMetadata aquali = getPkmMetadata(133);
 		
-		assertEquals(0, aquali.getIndex());
+		assertEquals(133, aquali.getIndex());
 		assertEquals("Aquali", aquali.getName());
 		assertEquals(186, aquali.getAttack());
 		assertEquals(168, aquali.getDefense());
