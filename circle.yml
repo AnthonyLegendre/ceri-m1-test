@@ -8,4 +8,4 @@ general:
      - master
 
 test:
- -mvn 
+ -mvn integration-test 
