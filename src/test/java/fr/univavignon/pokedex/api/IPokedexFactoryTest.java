@@ -8,12 +8,11 @@ import org.mockito.Mockito;
 
 public class IPokedexFactoryTest {
 
-	@Mock private IPokedexFactory pokedexFactory;
+	@Mock IPokedex pokedex = Mockito.mock(IPokedex.class);
+	@Mock IPokedexFactory pokedexFactory = Mockito.mock(IPokedexFactory.class);
 	
-	@Mock IPokedex pokedex;
-	
-	IPokemonMetadataProvider provider;
-	IPokemonFactory pkmFactory; 
+	@Mock IPokemonMetadataProvider provider = Mockito.mock(IPokemonMetadataProvider.class);
+	@Mock IPokemonFactory pkmFactory = Mockito.mock(IPokemonFactory.class); 
 	
 	@Before
 	public void setUp()
