@@ -30,7 +30,7 @@ public final class IPokemonTrainerFactoryTest {
 	public void testTrainerFactory()
 	{
 		assertEquals(this.sacha,
-		trainerFactory.createTrainer(null, null, null)
+		trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory)
 					);
 	}
 	
@@ -52,8 +52,7 @@ public final class IPokemonTrainerFactoryTest {
 		Mockito.when(pokedexFactory.createPokedex(provider, pkmFactory)).thenReturn(pokedex);
 		
 		//Mock du trainer
-		//Mockito.when(trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory)).thenReturn(sacha);
-		Mockito.when(trainerFactory.createTrainer(null, null, null)).thenReturn(this.sacha);
+		Mockito.when(trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory)).thenReturn(sacha);
 	}
 	
 	
