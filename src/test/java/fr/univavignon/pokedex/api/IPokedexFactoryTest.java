@@ -2,6 +2,7 @@ package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
@@ -24,6 +25,7 @@ public class IPokedexFactoryTest {
 		Mockito.when(pokedexFactory.createPokedex(provider, pkmFactory)).thenReturn(pokedex);
 	}
 	
+	@Test
 	public void testCreatePokedex()
 	{
 		assertEquals(pokedex, pokedexFactory.createPokedex(provider, pkmFactory));
