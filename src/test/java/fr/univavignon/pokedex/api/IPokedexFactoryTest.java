@@ -29,6 +29,7 @@ public class IPokedexFactoryTest {
 		return pokedexFactory;
 	}
 	
+	
 
 	
 	/* Méthode(s) de la classe à tester 
