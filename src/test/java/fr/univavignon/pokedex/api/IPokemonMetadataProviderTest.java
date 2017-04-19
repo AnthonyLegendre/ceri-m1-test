@@ -9,7 +9,7 @@ import org.mockito.*;
 public class IPokemonMetadataProviderTest {
 	
 	@Mock private IPokemonMetadataProvider pkmProvider;
-	private PokemonMetadata bulbi = new PokemonMetadata(0, "Bulbasaur", 126, 126, 90);
+	private PokemonMetadata bulbi = new PokemonMetadata(1, "Bulbasaur", 126, 126, 90);
 	private PokemonMetadata aquali = new PokemonMetadata(133, "Vaporeon", 186, 168, 260);
 	
 	public IPokemonMetadataProvider getProvider()
@@ -20,7 +20,7 @@ public class IPokemonMetadataProviderTest {
 	@Test
 	public void testPkmMetadata() throws PokedexException
 	{
-		assertEquals(bulbi, this.getProvider().getPokemonMetadata(0));
+		assertEquals(bulbi, this.getProvider().getPokemonMetadata(1));
 		
 	}
 	

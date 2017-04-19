@@ -26,7 +26,7 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 	
 	@Override
 	public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-		if(index < 0 || index > 151) { throw new PokedexException("Index inexistant"); }
+		if(index <= 0 || index > 151) { throw new PokedexException("Index inexistant"); }
 		try
 		{
 			URL url = new URL(JSON_DATA_URL);
@@ -34,7 +34,6 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 			
 			try(InputStream input = connection.getInputStream())
 			{
-				logger.info(IOUtils.toString(input));
 				JSONArray json = new JSONArray(IOUtils.toString(input));
 				JSONObject pokemon = json.getJSONObject(index - 1);
 				
