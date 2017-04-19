@@ -37,6 +37,8 @@ public final class IPokemonTrainerFactoryTest {
 	@Before
 	public void setUp() throws PokedexException
 	{
+		System.out.println("Test sacha");
+		System.out.println(sacha);
 		//Mock pokedex
 		Mockito.when(pokedex.size()).thenReturn(6);
 		
@@ -52,7 +54,6 @@ public final class IPokemonTrainerFactoryTest {
 		//Mock du trainer
 		//Mockito.when(trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory)).thenReturn(sacha);
 		Mockito.when(trainerFactory.createTrainer(null, null, null)).thenReturn(this.sacha);
-				
 	}
 	
 	
