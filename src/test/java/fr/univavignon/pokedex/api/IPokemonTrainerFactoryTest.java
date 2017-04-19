@@ -1,3 +1,9 @@
+/*
+ * Rendre par mail avant le vendredi 5 mai 12h00
+ * felix.voituret@ismart.fr
+ * Nom + Prenom + Groupe + github url
+ * 
+ */
 package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.*;
@@ -8,13 +14,13 @@ import org.mockito.*;
 
 public final class IPokemonTrainerFactoryTest {
 
-	@Mock IPokemonTrainerFactory trainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
+	@Mock private IPokemonTrainerFactory trainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
 	
-	@Mock IPokedex pokedex = Mockito.mock(IPokedex.class);
-	@Mock IPokedexFactory pokedexFactory = Mockito.mock(IPokedexFactory.class);
+	@Mock private IPokedex pokedex = Mockito.mock(IPokedex.class);
+	@Mock private IPokedexFactory pokedexFactory = Mockito.mock(IPokedexFactory.class);
 	
-	@Mock IPokemonMetadataProvider provider = Mockito.mock(IPokemonMetadataProvider.class);
-	@Mock IPokemonFactory pkmFactory = Mockito.mock(IPokemonFactory.class); 
+	@Mock private IPokemonMetadataProvider provider = Mockito.mock(IPokemonMetadataProvider.class);
+	@Mock private IPokemonFactory pkmFactory = Mockito.mock(IPokemonFactory.class); 
 	
 	//private PokemonTrainer sacha;
 	

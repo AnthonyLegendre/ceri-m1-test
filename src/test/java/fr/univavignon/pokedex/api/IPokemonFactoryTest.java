@@ -5,10 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.mockito.Mock;
 
-public class IPokemonFactoryTest {
-	
-	@Mock private IPokemonFactory pkmFactory;
-	
+public class IPokemonFactoryTest {	
 	@Test
 	public void testCreatePokemon()
 	{
