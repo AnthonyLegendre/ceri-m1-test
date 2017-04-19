@@ -8,7 +8,7 @@ import org.mockito.*;
 
 public final class IPokemonMetadataProviderTest {
 	
-	
+	@Mock private IPokemonMetadataProvider pkmProvider;
 	private PokemonMetadata bulbi = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
 	private PokemonMetadata aquali = new PokemonMetadata(133, "Aquali", 186, 168, 260);
 	
