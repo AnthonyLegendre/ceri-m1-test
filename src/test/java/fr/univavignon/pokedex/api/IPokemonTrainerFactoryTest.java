@@ -41,6 +41,11 @@ public final class IPokemonTrainerFactoryTest {
 		System.out.println(provider);
 		System.out.println("Test pkmFactory");
 		System.out.println(pkmFactory);
+		System.out.println("Test pokedexFactory");
+		System.out.println(pokedexFactory);
+		System.out.println("Test pokedex");
+		System.out.println(pokedex);
+		
 		//Mock pokedex
 		Mockito.when(pokedex.size()).thenReturn(6);
 		
