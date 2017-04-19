@@ -10,19 +10,21 @@ public final class IPokemonTrainerFactoryTest {
 
 	@Mock IPokemonTrainerFactory trainerFactory;
 	
-	IPokedexTest pokedex = new IPokedexTest();
-	IPokedexFactoryTest pokedexFactory = new IPokedexFactoryTest();
-	IPokemonMetadataProviderTest provider = new IPokemonMetadataProviderTest();
-	IPokemonFactoryTest pkmFactory = new IPokemonFactoryTest(); 
+	IPokedex pokedex = Mockito.mock(IPokedex.class);
+	IPokedexFactory pokedexFactory;
+	
+	IPokemonMetadataProvider provider;
+	IPokemonFactory pkmFactory; 
 	
 	
 	private PokemonTrainer sacha = new PokemonTrainer(
 			"Sacha", 
 			Team.VALOR,
-			pokedexFactory.getFactory().createPokedex(provider.getProvider(),
-			pkmFactory.getFactory()));
+			pokedexFactory.createPokedex(provider,pkmFactory)
+			);
 	
-	
+	private PokemonMetadata bulbi = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
+	private PokemonMetadata aquali = new PokemonMetadata(133, "Aquali", 186, 168, 260);
 	@Test
 	public void testTrainerFactory()
 	{
@@ -32,10 +34,22 @@ public final class IPokemonTrainerFactoryTest {
 	}
 	
 	@Before
-	public void setUp()
+	public void setUp() throws PokedexException
 	{
-		Mockito.when(trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory.getFactory())).thenReturn(sacha);
+		//Mock du trainer
+		Mockito.when(trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory)).thenReturn(sacha);
 		Mockito.when(trainerFactory.createTrainer(null, null, null)).thenReturn(this.sacha);
+		
+		//Mock pokedex
+		Mockito.when(pokedex.size()).thenReturn(6);
+		
+		//Mock provider
+		Mockito.when(provider.getPokemonMetadata(0)).thenReturn(bulbi);
+		Mockito.when(provider.getPokemonMetadata(133)).thenReturn(aquali);
+		Mockito.when(provider.getPokemonMetadata(-1)).thenThrow(new PokedexException("Index inexistant"));
+		Mockito.when(provider.getPokemonMetadata(151)).thenThrow(new PokedexException("Index inexistant"));
+		
+		//Mock PkmFactory
 	}
 	
 	

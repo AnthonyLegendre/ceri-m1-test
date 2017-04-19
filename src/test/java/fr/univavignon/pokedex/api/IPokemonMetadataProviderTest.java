@@ -42,11 +42,6 @@ public final class IPokemonMetadataProviderTest {
 		Mockito.when(pkmProvider.getPokemonMetadata(151)).thenThrow(new PokedexException("Index inexistant"));
 	}
 	
-	public IPokemonMetadataProvider getProvider()
-	{
-		return pkmProvider;
-	}
-	
 	/* Méthode(s) de la classe à tester 
 	 * PokemonMetadata getPokemonMetadata(int index) throws PokedexException;
 	 */

@@ -9,26 +9,25 @@ public class IPokedexFactoryTest {
 
 	@Mock private IPokedexFactory pokedexFactory;
 	
-	IPokedexTest pokedex = new IPokedexTest();
-	IPokemonMetadataProviderTest provider = new IPokemonMetadataProviderTest();
-	IPokemonFactoryTest pkmFactory = new IPokemonFactoryTest();
+	IPokedex pokedex = Mockito.mock(IPokedex.class);
+	
+	IPokemonMetadataProvider provider;
+	IPokemonFactory pkmFactory; 
 	
 	@Before
 	public void setUp()
 	{
-		Mockito.when(pokedexFactory.createPokedex(provider.getProvider(), pkmFactory.getFactory())).thenReturn(pokedex.getTestPokedex());
+		//Mock pokedex
+		Mockito.when(pokedex.size()).thenReturn(6);
+		
+		//Mock Pokedex factory
+		Mockito.when(pokedexFactory.createPokedex(provider, pkmFactory)).thenReturn(pokedex);
 	}
 	
 	public void testCreatePokedex()
 	{
-		assertEquals(pokedex.getTestPokedex(), pokedexFactory.createPokedex(provider.getProvider(), pkmFactory.getFactory()));
+		assertEquals(pokedex, pokedexFactory.createPokedex(provider, pkmFactory));
 	}
-	
-	public IPokedexFactory getFactory()
-	{
-		return pokedexFactory;
-	}
-	
 	
 
 	
