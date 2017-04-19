@@ -8,13 +8,13 @@ import org.mockito.*;
 
 public final class IPokemonTrainerFactoryTest {
 
-	@Mock IPokemonTrainerFactory trainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
+	@Mock IPokemonTrainerFactory trainerFactory;
 	
-	@Mock IPokedex pokedex = Mockito.mock(IPokedex.class);
-	@Mock IPokedexFactory pokedexFactory = Mockito.mock(IPokedexFactory.class);
+	@Mock IPokedex pokedex;
+	@Mock IPokedexFactory pokedexFactory;
 	
-	@Mock IPokemonMetadataProvider provider = Mockito.mock(IPokemonMetadataProvider.class);
-	@Mock IPokemonFactory pkmFactory = Mockito.mock(IPokemonFactory.class); 
+	@Mock IPokemonMetadataProvider provider;
+	@Mock IPokemonFactory pkmFactory; 
 	
 	//private PokemonTrainer sacha;
 	
@@ -37,16 +37,7 @@ public final class IPokemonTrainerFactoryTest {
 	@Before
 	public void setUp() throws PokedexException
 	{
-		System.out.println("Test provider");
-		System.out.println(provider);
-		System.out.println("Test pkmFactory");
-		System.out.println(pkmFactory);
-		System.out.println("Test pokedexFactory");
-		System.out.println(pokedexFactory);
-		System.out.println("Test pokedex");
-		System.out.println(pokedex);
-		System.out.println(trainerFactory);
-		System.out.println("Test trainerFactory");
+		MockitoAnnotations.initMocks(this);
 		//Mock pokedex
 		Mockito.when(pokedex.size()).thenReturn(6);
 		
@@ -60,12 +51,7 @@ public final class IPokemonTrainerFactoryTest {
 		Mockito.when(pokedexFactory.createPokedex(provider, pkmFactory)).thenReturn(pokedex);
 		
 		//Mock du trainer
-		Mockito.when(
-				trainerFactory.createTrainer(
-				"Sacha", 
-				Team.VALOR,
-				pokedexFactory)
-				).thenReturn(this.sacha);
+		Mockito.when(trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory)).thenReturn(this.sacha);
 	}
 	
 	
