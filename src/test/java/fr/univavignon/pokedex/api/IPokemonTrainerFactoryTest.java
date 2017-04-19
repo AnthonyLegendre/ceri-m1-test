@@ -14,7 +14,7 @@ public final class IPokemonTrainerFactoryTest {
 	@Mock IPokedexFactory pokedexFactory;
 	
 	@Mock IPokemonMetadataProvider provider;
-	IPokemonFactory pkmFactory; 
+	@Mock IPokemonFactory pkmFactory; 
 	
 	
 	private PokemonTrainer sacha = new PokemonTrainer(
