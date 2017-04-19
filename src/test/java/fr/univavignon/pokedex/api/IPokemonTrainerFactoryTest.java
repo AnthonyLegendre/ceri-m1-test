@@ -10,10 +10,10 @@ public final class IPokemonTrainerFactoryTest {
 
 	@Mock IPokemonTrainerFactory trainerFactory;
 	
-	IPokedex pokedex = Mockito.mock(IPokedex.class);
-	IPokedexFactory pokedexFactory = Mockito.mock(IPokedexFactory.class);
+	@Mock IPokedex pokedex;
+	@Mock IPokedexFactory pokedexFactory;
 	
-	IPokemonMetadataProvider provider;
+	@Mock IPokemonMetadataProvider provider;
 	IPokemonFactory pkmFactory; 
 	
 	
@@ -40,8 +40,8 @@ public final class IPokemonTrainerFactoryTest {
 		Mockito.when(pokedex.size()).thenReturn(6);
 		
 		//Mock provider
-		Mockito.when(provider.getPokemonMetadata(0)).thenReturn(bulbi);
-		Mockito.when(provider.getPokemonMetadata(133)).thenReturn(aquali);
+		Mockito.when(provider.getPokemonMetadata(0)).thenReturn(this.bulbi);
+		Mockito.when(provider.getPokemonMetadata(133)).thenReturn(this.aquali);
 		Mockito.when(provider.getPokemonMetadata(-1)).thenThrow(new PokedexException("Index inexistant"));
 		Mockito.when(provider.getPokemonMetadata(151)).thenThrow(new PokedexException("Index inexistant"));
 		

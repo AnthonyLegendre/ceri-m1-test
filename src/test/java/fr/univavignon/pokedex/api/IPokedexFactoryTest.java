@@ -9,7 +9,7 @@ public class IPokedexFactoryTest {
 
 	@Mock private IPokedexFactory pokedexFactory;
 	
-	IPokedex pokedex = Mockito.mock(IPokedex.class);
+	@Mock IPokedex pokedex;
 	
 	IPokemonMetadataProvider provider;
 	IPokemonFactory pkmFactory; 
