@@ -40,7 +40,7 @@ public class IPokemonMetadataProviderTest {
 	public void setUp() throws PokedexException
 	{
 		MockitoAnnotations.initMocks(this);
-		Mockito.when(this.getProvider().getPokemonMetadata(0)).thenReturn(bulbi);
+		Mockito.when(this.getProvider().getPokemonMetadata(1)).thenReturn(bulbi);
 		Mockito.when(this.getProvider().getPokemonMetadata(133)).thenReturn(aquali);
 		
 		Mockito.when(this.getProvider().getPokemonMetadata(-1)).thenThrow(new PokedexException("Index inexistant"));
