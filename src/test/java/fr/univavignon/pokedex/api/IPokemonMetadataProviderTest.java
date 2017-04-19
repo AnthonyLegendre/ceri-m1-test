@@ -12,6 +12,8 @@ public final class IPokemonMetadataProviderTest {
 	private PokemonMetadata bulbi = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
 	private PokemonMetadata aquali = new PokemonMetadata(133, "Aquali", 186, 168, 260);
 	
+	
+	
 	@Test
 	public void testPkmMetadata() throws PokedexException
 	{
