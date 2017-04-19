@@ -8,7 +8,7 @@ import org.mockito.*;
 
 public final class IPokemonTrainerFactoryTest {
 
-	@Mock IPokemonTrainerFactory trainerFactory;
+	@Mock IPokemonTrainerFactory trainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
 	
 	@Mock IPokedex pokedex = Mockito.mock(IPokedex.class);
 	@Mock IPokedexFactory pokedexFactory = Mockito.mock(IPokedexFactory.class);
@@ -45,7 +45,8 @@ public final class IPokemonTrainerFactoryTest {
 		System.out.println(pokedexFactory);
 		System.out.println("Test pokedex");
 		System.out.println(pokedex);
-		
+		System.out.println(trainerFactory);
+		System.out.println("Test trainerFactory");
 		//Mock pokedex
 		Mockito.when(pokedex.size()).thenReturn(6);
 		
@@ -59,7 +60,8 @@ public final class IPokemonTrainerFactoryTest {
 		Mockito.when(pokedexFactory.createPokedex(provider, pkmFactory)).thenReturn(pokedex);
 		
 		//Mock du trainer
-		Mockito.when(trainerFactory.createTrainer(
+		Mockito.when(
+				trainerFactory.createTrainer(
 				"Sacha", 
 				Team.VALOR,
 				pokedexFactory)
