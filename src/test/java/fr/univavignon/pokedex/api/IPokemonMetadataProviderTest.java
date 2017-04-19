@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
 
-public final class IPokemonMetadataProviderTest {
+public class IPokemonMetadataProviderTest {
 	
 	@Mock private IPokemonMetadataProvider pkmProvider;
 	private PokemonMetadata bulbi = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
@@ -14,7 +14,6 @@ public final class IPokemonMetadataProviderTest {
 	
 	public IPokemonMetadataProvider getProvider()
 	{
-		IPokemonMetadataProvider pkmProvider = Mockito.mock(IPokemonMetadataProvider.class);
 		return pkmProvider;
 	}
 	
