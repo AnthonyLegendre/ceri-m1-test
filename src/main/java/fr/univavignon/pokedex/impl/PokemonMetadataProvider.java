@@ -26,6 +26,7 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 	
 	@Override
 	public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+		if(index < 0 || index > 151) { throw new PokedexException("Index inexistant"); }
 		try
 		{
 			URL url = new URL(JSON_DATA_URL);
@@ -36,13 +37,16 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 				logger.info(IOUtils.toString(input));
 				JSONArray json = new JSONArray(IOUtils.toString(input));
 				JSONObject pokemon = json.getJSONObject(index - 1);
-								
-				return new PokemonMetadata(index,
-						pokemon.getString(pkmName),
-						pokemon.getInt(pkmAtt),
-						pokemon.getInt(pkmDef),
-						pokemon.getInt(pkmStamina));
 				
+				if(pokemon == null) { throw new PokedexException("Ce pokemon n'existe pas. C'est triste. :("); }
+				else
+				{
+					return new PokemonMetadata(index,
+							pokemon.getString(pkmName),
+							pokemon.getInt(pkmAtt),
+							pokemon.getInt(pkmDef),
+							pokemon.getInt(pkmStamina));
+				}
 			}
 		}
 		catch(IOException e)
