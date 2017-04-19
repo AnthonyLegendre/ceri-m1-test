@@ -37,8 +37,10 @@ public final class IPokemonTrainerFactoryTest {
 	@Before
 	public void setUp() throws PokedexException
 	{
-		System.out.println("Test pkd factory");
-		System.out.println(pokedexFactory);
+		System.out.println("Test provider");
+		System.out.println(provider);
+		System.out.println("Test pkmFactory");
+		System.out.println(pkmFactory);
 		//Mock pokedex
 		Mockito.when(pokedex.size()).thenReturn(6);
 		
