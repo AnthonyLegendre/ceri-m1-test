@@ -43,11 +43,6 @@ public class IPokemonFactoryTest {
 		return pkm;
 	}
 	
-	public IPokemonFactory getFactory()
-	{
-		return pkmFactory;
-	}
-	
 	/* Méthode(s) de la classe à tester 
 	 * Pokemon createPokemon(int index, int cp, int hp, int dust, int candy);
 	 */

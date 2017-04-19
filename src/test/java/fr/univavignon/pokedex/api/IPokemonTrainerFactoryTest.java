@@ -16,11 +16,13 @@ public final class IPokemonTrainerFactoryTest {
 	@Mock IPokemonMetadataProvider provider;
 	@Mock IPokemonFactory pkmFactory; 
 	
-	private PokemonTrainer sacha = new PokemonTrainer(
+	private PokemonTrainer sacha;
+	
+	/*private PokemonTrainer sacha = new PokemonTrainer(
 			"Sacha", 
 			Team.VALOR,
 			pokedexFactory.createPokedex(provider,pkmFactory)
-			);
+			); */
 	
 	private PokemonMetadata bulbi = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
 	private PokemonMetadata aquali = new PokemonMetadata(133, "Aquali", 186, 168, 260);
