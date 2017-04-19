@@ -8,13 +8,13 @@ import org.mockito.*;
 
 public final class IPokemonTrainerFactoryTest {
 
-	@Mock IPokemonTrainerFactory trainerFactory;
+	@Mock IPokemonTrainerFactory trainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
 	
-	@Mock IPokedex pokedex;
-	@Mock IPokedexFactory pokedexFactory;
+	@Mock IPokedex pokedex = Mockito.mock(IPokedex.class);
+	@Mock IPokedexFactory pokedexFactory = Mockito.mock(IPokedexFactory.class);
 	
-	@Mock IPokemonMetadataProvider provider;
-	@Mock IPokemonFactory pkmFactory; 
+	@Mock IPokemonMetadataProvider provider = Mockito.mock(IPokemonMetadataProvider.class);
+	@Mock IPokemonFactory pkmFactory = Mockito.mock(IPokemonFactory.class); 
 	
 	//private PokemonTrainer sacha;
 	
@@ -37,7 +37,6 @@ public final class IPokemonTrainerFactoryTest {
 	@Before
 	public void setUp() throws PokedexException
 	{
-		MockitoAnnotations.initMocks(this);
 		//Mock pokedex
 		Mockito.when(pokedex.size()).thenReturn(6);
 		
