@@ -50,7 +50,7 @@ public final class IPokemonTrainerFactoryTest {
 		Mockito.when(pokedexFactory.createPokedex(provider, pkmFactory)).thenReturn(pokedex);
 		
 		//Mock du trainer
-		Mockito.when(trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory)).thenReturn(sacha);
+		//Mockito.when(trainerFactory.createTrainer("Sacha", Team.VALOR, pokedexFactory)).thenReturn(sacha);
 		Mockito.when(trainerFactory.createTrainer(null, null, null)).thenReturn(this.sacha);
 				
 	}
